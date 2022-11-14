@@ -7,6 +7,11 @@ export default{
         return{
             store,
         }
+    },
+    methods:{
+        getImagePath(imgPath){
+            return new URL(imgPath, import.meta.url).href
+        }
     }
 }
 </script>
@@ -18,6 +23,9 @@ export default{
                     <li>Titolo: {{movie.title}}</li>
                     <li>Titolo originale: {{movie.original_title}}</li>
                     <li>Lingua: {{movie.original_language}}</li>
+                    <li>
+                        <img :src="getImagePath(`../assets/img/${movie.original_language}.png`)" alt="">    
+                    </li>
                     <li>Voto: {{movie.vote_average}} </li>
                 </ul>
             </li>
@@ -32,5 +40,9 @@ export default{
 <style lang="scss" scoped>
 ul{
     margin: 1rem;
+}
+img {
+    width: 2rem;
+    min-height: 1rem;
 }
 </style>
