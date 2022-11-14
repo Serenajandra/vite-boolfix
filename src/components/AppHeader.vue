@@ -1,13 +1,21 @@
 <script>
+import AppSearch from './AppSearch.vue';
+
 export default {
-    name:  "AppHeader",
-    data(){
-        return{
-           
-        }
+    name: "AppHeader",
+
+    components: {
+        AppSearch,
     }
 }
 </script>
- <template></template>
+
+ <template>
+    <h1>Boolfix</h1>
+    <AppSearch />
+ </template>
+ 
  <style lang=" scss" scoped>
+ 
+
 </style>
