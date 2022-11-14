@@ -16,11 +16,9 @@ export default{
       store,
     }
   },
+
   created() {
-   axios.get(this.store.apiMoviesURL).then((resp => {
-     this.store.movies = resp.data.results;
-    //  console.log(resp)
-   }))
+
   }
 }
 </script>
@@ -28,6 +26,7 @@ export default{
 <template>
   <header> 
     <AppHeader />
+
   </header>
   <main>
     <AppCardsList />

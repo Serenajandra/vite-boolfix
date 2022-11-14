@@ -1,15 +1,26 @@
 <script>
+import { store } from '../store';
 export default{
     name :"AppSearch",
+    data(){
+        return{
+        store
+        }
+    },
+    methods:{
+        // searchKey(){
+        //     store.movies = 
+        // }
+    }
 }
 </script>
 
 <template>
-    <div>
-        <label for="">cerca</label>
-        <input type="text">
-    </div>
-    
+    <section>
+        <label for="search">cerca</label>
+        <input type="text" id="search" v-model="store.searchKey"/>
+        <button @click="$emit(`search`)">conferma</button>
+    </section>
 
 </template>
 
