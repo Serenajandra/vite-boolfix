@@ -15,12 +15,13 @@ export default{
 </script>
 <template>
     <div class="container">
-               <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
-        <!-- <div class="row">
+        <div class="row">
             <div class="col">
-                <div class="card"></div>
+                <div class="card">
+                    <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
+                </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
