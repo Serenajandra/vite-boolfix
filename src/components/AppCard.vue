@@ -4,6 +4,11 @@ export default{
     props:{
         card : Object
     },
+    data(){
+        return{
+            imageFlag: ["de","en","es","fr","it","ru","tk"]
+        }
+    },
     methods:{
         getImagePath(imgPath){
             return new URL(imgPath, import.meta.url).href
@@ -17,9 +22,9 @@ export default{
             <h3> Titolo: {{card.title}}</h3>
         </li>
         <li>Titolo originale: {{card.original_title}}</li>
-        <li>Lingua: {{card.original_language}}</li>
         <li>
-            <img :src="getImagePath(`../assets/img/${card.original_language}.png`)" alt="">    
+            <img v-if="imageFlag.includes(card.original_language)" :src="getImagePath(`../assets/img/${card.original_language}.png`)" alt="">    
+            <p v-else>Lingua: {{card.original_language}}</p> 
         </li>
         <li>Voto: {{card.vote_average}} </li>
     </ul>
