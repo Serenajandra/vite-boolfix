@@ -8,7 +8,5 @@ export const store = reactive({
     loading: false,
     movies: [],
     series: [],
-    // searchResults: [],
-    // flags: [] 
     
 })

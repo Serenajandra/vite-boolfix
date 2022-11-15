@@ -49,7 +49,7 @@ export default {
 </script>
 
  <template>
-    <h1>Boolfix</h1>
+    <h1>Boolflix</h1>
     <AppSearch @search="searchUserInput()" />
  </template>
  
