@@ -1,35 +1,21 @@
 <script>
 import {store} from "../store";
+import AppCard from "./AppCard.vue";
 export default{
     name: "AppCardList",
-
+    components:{
+        AppCard
+    },
     data(){
         return{
             store,
         }
     },
-    methods:{
-        getImagePath(imgPath){
-            return new URL(imgPath, import.meta.url).href
-        }
-    }
 }
 </script>
 <template>
     <div class="container">
-        <ul>
-            <li v-for="movie in store.movies" :key="movie.id">
-                <ul>
-                    <li>Titolo: {{movie.title}}</li>
-                    <li>Titolo originale: {{movie.original_title}}</li>
-                    <li>Lingua: {{movie.original_language}}</li>
-                    <li>
-                        <img :src="getImagePath(`../assets/img/${movie.original_language}.png`)" alt="">    
-                    </li>
-                    <li>Voto: {{movie.vote_average}} </li>
-                </ul>
-            </li>
-        </ul>
+               <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
         <!-- <div class="row">
             <div class="col">
                 <div class="card"></div>
@@ -38,11 +24,5 @@ export default{
     </div>
 </template>
 <style lang="scss" scoped>
-ul{
-    margin: 1rem;
-}
-img {
-    width: 2rem;
-    min-height: 1rem;
-}
+
 </style>

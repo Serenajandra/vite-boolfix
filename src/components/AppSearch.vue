@@ -8,9 +8,6 @@ export default{
         }
     },
     methods:{
-        // searchKey(){
-        //     store.movies = 
-        // }
     }
 }
 </script>
