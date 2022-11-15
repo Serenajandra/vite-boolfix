@@ -6,7 +6,8 @@ export default{
     },
     data(){
         return{
-            imageFlag: ["de","en","es","fr","it","ru","tk"]
+            imageFlag: ["de","en","es","fr","it","ru","tk"],
+            hover: true
         }
     },
     methods:{
@@ -35,14 +36,24 @@ export default{
             }else{
                 return Math.round(this.card.vote_average)
             }
-        }
+        },
+        // hide(){
+        //     return this.hover = false
+            
+        // },
+        // show(){
+        //     return this.hover = true
+        // }
     },
 
     
 }
 </script>
 <template>
-    <div class="card">
+    <div class="card poster" v-if="hover" @mouseover="hover = false" @mouseleave="hover = true">
+        <img :src="getImagePath(`https://image.tmdb.org/t/p/w342${card.poster_path}`)" alt="">
+    </div>
+    <div class="card" v-else>
         <h3> Titolo: {{getTitle}}</h3>
         <p>Titolo originale: {{getOriginalTitle}}</p>
         <div>
@@ -52,9 +63,7 @@ export default{
         <!-- <p>Voto: {{card.vote_average}} </p> -->
         <span v-for="number in getVote"><i class="fa-solid fa-star"></i></span>
     </div> 
-    <div class="card poster">
-        <img :src="getImagePath(`https://image.tmdb.org/t/p/w342${card.poster_path}`)" alt="">
-    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -71,4 +80,5 @@ export default{
         width: 2rem;
         min-height: 1rem;
     }
+  
 </style>
