@@ -6,26 +6,17 @@ export default{
         return{
         store
         }
-    },
-    methods:{
     }
 }
 </script>
 
 <template>
     <section>
-        <label for="search">cerca</label>
+        <label for="search"></label>
         <input type="text" id="search" v-model="store.searchKey"/>
-        <button @click="$emit(`search`)">conferma</button>
+        <button @click="$emit(`search`)">Cerca</button>
     </section>
-
 </template>
 
 <style lang="scss" scoped>
-
-div{
-background-color: aquamarine;
-width: 100%;
-height: 100px;
-}
 </style>

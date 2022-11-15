@@ -10,21 +10,28 @@ export default{
         return{
             store,
         }
-    },
+    }
 }
 </script>
 <template>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="card">
-                    <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
-                    <AppCard v-for="serie in store.series" :key="serie.id" :card="serie"/>
-                </div>
-            </div>
+            <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
+            <AppCard v-for="serie in store.series" :key="serie.id" :card="serie"/>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
-
+.container{
+    width: 100%;
+    height: 100%;
+    .row{
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
 </style>

@@ -42,7 +42,7 @@ export default{
 }
 </script>
 <template>
-    <div class="card movies">
+    <div class="card">
         <h3> Titolo: {{getTitle}}</h3>
         <p>Titolo originale: {{getOriginalTitle}}</p>
         <div>
@@ -60,6 +60,12 @@ export default{
 <style lang="scss" scoped>
     .card{
         margin: 1rem;
+        width: 10rem;
+        border: 1px solid lightgrey;
+        padding: 0.5rem;
+        img{
+            object-fit: contain;
+        }
     }
     .flag {
         width: 2rem;
