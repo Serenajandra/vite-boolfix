@@ -19,6 +19,7 @@ export default{
             <div class="col">
                 <div class="card">
                     <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
+                    <AppCard v-for="serie in store.series" :key="serie.id" :card="serie"/>
                 </div>
             </div>
         </div>
