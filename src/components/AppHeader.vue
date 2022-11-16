@@ -29,17 +29,27 @@ export default {
         searchMovie(){
           axios.get(`${this.store.apiMoviesURL}${this.store.apiKey}&query=${this.store.searchKey}`).then((resp => {
             // Il risultato della chiamata è uguale all'array movies
-            this.store.movies = resp.data.results;
+            if (resp.data.results.length !== 0) {
+              this.store.movies = resp.data.results;
             // console.log(resp)
+            }else{
+              alert("Questa ricerca nella categoria film non ha prodotto risultati");
+              this.store.movies = []
+            }
           })).catch(error=>{
             this.store.movies = []
+
           })
         },
         searchSerie(){
           axios.get(`${this.store.apiSeriesURL}${this.store.apiKey}&query=${this.store.searchKey}`).then((resp => {
-            // Il risultato della chiamata è uguale all'array movies
+            if (resp.data.results.length !== 0) {
             this.store.series = resp.data.results;
             // console.log(resp)
+          }else{
+            alert("Questa ricerca nella categoria serie TV non ha prodotto risultati");
+            this.store.series = []
+          }
           })).catch(error=>{
             this.store.series = []
           })
