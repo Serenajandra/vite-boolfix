@@ -14,24 +14,39 @@ export default{
 }
 </script>
 <template>
-    <div class="container">
-        <div class="row">
-            <AppCard v-for="movie in store.movies" :key="movie.id" :card="movie"/>
-            <AppCard v-for="serie in store.series" :key="serie.id" :card="serie"/>
-        </div>
+    <div class="main-container">
+        <section class="movies">
+            <div class="row">
+                <div class="col"  v-for="movie in store.movies" :key="movie.id" >
+                    <AppCard :card="movie"/>
+                </div>
+            </div>
+        </section>
+        <section class="series">
+            <div class="row">
+                <div class="col" v-for="serie in store.series" :key="serie.id" >
+                    <AppCard :card="serie"/>
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 <style lang="scss" scoped>
-.container{
+.main-container{
     width: 100%;
     height: 100%;
+    overflow-y: auto;
     .row{
-        height: 100%;
         display: flex;
         flex-wrap: wrap;
         width: 100%;
         height: 100%;
-        margin: 0 auto;
+        justify-content: space-around;
+        .col{
+            margin: 1rem;
+            width: calc((100% / 5) - 10px );
+            padding: 0.2rem;
+        }
     }
 }
 </style>

@@ -34,7 +34,6 @@ export default{
 .wrapper{
   width: 100%;
   height: 100vh;
-  background-color: rgb(78, 78, 78);
   
   header{
     width: 100%;
@@ -51,6 +50,7 @@ export default{
   main{
     width: 100%;
     height: calc(100vh - 80px);
+    background-color: rgb(78, 78, 78);
   }
 }
 
