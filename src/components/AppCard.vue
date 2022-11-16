@@ -31,11 +31,7 @@ export default{
             }
         },
         getVote(){
-            if (this.card.vote_average > 5) {
-                return 5
-            }else{
-                return Math.round(this.card.vote_average)
-            }
+            return Math.round(this.card.vote_average / 2)
         },
         // hide(){
         //     return this.hover = false
@@ -60,8 +56,8 @@ export default{
             <img class="flag" v-if="imageFlag.includes(card.original_language)" :src="getImagePath(`../assets/img/${card.original_language}.png`)" alt="">    
             <p v-else>Lingua: {{card.original_language}}</p> 
         </div>
-        <!-- <p>Voto: {{card.vote_average}} </p> -->
-        <span v-for="number in getVote"><i class="fa-solid fa-star"></i></span>
+        <!-- <p>Voto: {{getVote}} </p> -->
+        <span v-for="number in 5" :key="number"><i class="fa-star" :class="number <= getVote ? `fa-solid` : `fa-regular` "></i></span>
     </div> 
 
 </template>
